@@ -7,12 +7,10 @@ A responsive online library application built with vanilla HTML, CSS, and JavaSc
 ### Core Functionality
 - **Interactive Book Grid**: Displays a responsive grid of books with cover images, titles, and authors
 - **Category Filtering**: Filter books by categories (Fiction, Non-Fiction, Science, Fantasy)
-- **Real-time Search**: Search functionality that filters books by title or author as you type
-- **Book Details**: Click any book to view detailed information in a sidebar
+- **Book Details**: Click any book to view detailed information in another page
 - **Responsive Design**: Fully responsive layout that works on all device sizes
 
 ### User Experience
-- **Hover Effects**: Hover over books to see brief descriptions
 - **Visual Feedback**: Interactive elements provide clear visual feedback
 - **Accessible**: Built with accessibility in mind, including proper ARIA labels and keyboard navigation
 - **Performance**: Optimized for fast loading and smooth interactions
