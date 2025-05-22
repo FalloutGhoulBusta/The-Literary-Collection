@@ -154,7 +154,7 @@ function displayBooks(booksToDisplay) {
         bookCard.setAttribute('data-id', book.id);
 
         bookCard.innerHTML = `
-            <img src="${book.cover}" alt="${book.title}" class="book-cover">
+            <img src="${book.cover}" alt="${book.title}" class="book-cover" loading="lazy">
             <div class="book-info">
                 <h3 class="book-title">${book.title}</h3>
                 <p class="book-author">by ${book.author}</p>
