@@ -88,7 +88,7 @@ project/
 ### State Management
 - `filteredBooks`: Tracks currently displayed books
 - `currentCategory`: Tracks active category filter
-- Search is performed in real-time as the user types
+
 
 ## 📱 Responsive Design
 - Mobile-first approach
