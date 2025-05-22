@@ -15,6 +15,11 @@ A responsive online library application built with vanilla HTML, CSS, and JavaSc
 - **Accessible**: Built with accessibility in mind, including proper ARIA labels and keyboard navigation
 - **Performance**: Optimized for fast loading and smooth interactions
 
+### Performance Optimizations
+- **Lazy Loading**: Images are loaded only when they're about to enter the viewport, improving initial page load time
+- **Efficient Rendering**: The book grid is rendered efficiently using modern JavaScript
+- **Minimal Dependencies**: No external libraries or frameworks, reducing bundle size
+
 ## 🛠️ Project Structure
 
 ```
