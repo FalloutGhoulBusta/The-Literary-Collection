@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Literary Collection</title>
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" style="width: 100%;">
+        <header class="main-header">
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="info.html" class="nav-link">About</a>
+            </nav>
+            <h1>The Literary Collection</h1>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search books...">
+                <button id="search-button" aria-label="Search">
+                    <img src="images/icons/search.svg" alt="" class="search-icon">
+                    <span>Search</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Category filters -->
+        <div class="filter-container">
+            <h2>Categories:</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="fiction">Fiction</button>
+                <button class="filter-btn" data-category="non-fiction">Non-Fiction</button>
+                <button class="filter-btn" data-category="science">Science</button>
+                <button class="filter-btn" data-category="fantasy">Fantasy</button>
+            </div>
+        </div>
+
+        <!-- Books container -->
+        <div class="books-container" id="books-container">
+            <!-- Books will be loaded here -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

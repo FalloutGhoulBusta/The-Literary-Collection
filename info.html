@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About The Literary Collection</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="info.html" class="nav-link active">About</a>
+        </nav>
+        <h1>About The Literary Collection</h1>
+    </header>
+
+    <main class="info-container">
+        <div id="book-details" class="book-details">
+            <!-- Book details will be dynamically inserted here -->
+        </div>
+
+        <div id="about-content">
+            <section class="info-section">
+                <h2>Our Collection</h2>
+                <p>Welcome to The Literary Collection, a curated selection of timeless books across various genres. Below is a glimpse of our featured titles:</p>
+                
+                <div class="collection-category">
+                    <h3>Fiction</h3>
+                    <ul>
+                        <li><strong>To Kill a Mockingbird</strong> by Harper Lee - A classic tale of racial injustice in the American South.</li>
+                        <li><strong>1984</strong> by George Orwell - A dystopian novel about totalitarianism and surveillance.</li>
+                    </ul>
+                </div>
+                
+                <div class="collection-category">
+                    <h3>Non-Fiction</h3>
+                    <ul>
+                        <li><strong>A Brief History of Time</strong> by Stephen Hawking - An introduction to cosmology by renowned physicist Stephen Hawking.</li>
+                        <li><strong>Sapiens: A Brief History of Humankind</strong> by Yuval Noah Harari - A thought-provoking exploration of human history.</li>
+                    </ul>
+                </div>
+                
+                <div class="collection-category">
+                    <h3>Science</h3>
+                    <ul>
+                        <li><strong>The Cosmos</strong> by Carl Sagan - A journey through the universe with astronomer Carl Sagan.</li>
+                        <li><strong>The Origin of Species</strong> by Charles Darwin - The groundbreaking work that introduced the theory of evolution.</li>
+                    </ul>
+                </div>
+                
+                <div class="collection-category">
+                    <h3>Fantasy</h3>
+                    <ul>
+                        <li><strong>Harry Potter and the Philosopher's Stone</strong> by J.K. Rowling - The beginning of Harry Potter's magical journey at Hogwarts.</li>
+                        <li><strong>The Lord of the Rings</strong> by J.R.R. Tolkien - An epic fantasy journey through Middle-earth.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h2>Our Mission</h2>
+                <p>Our mission is to provide easy access to great literature and foster a love for reading. We believe in the power of books to educate, inspire, and entertain.</p>
+            </section>
+
+            <section class="info-section">
+                <h2>Browse Our Collection</h2>
+                <p>Use our <a href="index.html" class="text-link">main page</a> to explore our collection. You can filter books by category or use the search function to find specific titles or authors.</p>
+            </section>
+        </div>
+    </main>
+    
+    <script>
+        // Define the books array directly here
+        const books = [
+            {
+                id: 1,
+                title: "To Kill a Mockingbird",
+                author: "Harper Lee",
+                category: "fiction",
+                cover: "images/To_Kill_a_Mockingbird.jpg",
+                shortDescription: "A classic tale of racial injustice in the American South."
+            },
+            {
+                id: 2,
+                title: "1984",
+                author: "George Orwell",
+                category: "fiction",
+                cover: "images/1984.jpg",
+                shortDescription: "A dystopian novel about totalitarianism and surveillance."
+            },
+            {
+                id: 3,
+                title: "A Brief History of Time",
+                author: "Stephen Hawking",
+                category: "non-fiction",
+                cover: "images/A_Brief_History_of_Time.jpg",
+                shortDescription: "An introduction to cosmology by renowned physicist Stephen Hawking."
+            },
+            {
+                id: 4,
+                title: "The Cosmos",
+                author: "Carl Sagan",
+                category: "science",
+                cover: "images/cosmos.jpg",
+                shortDescription: "A journey through the universe with astronomer Carl Sagan."
+            },
+            {
+                id: 5,
+                title: "Harry Potter and the Philosopher's Stone",
+                author: "J.K. Rowling",
+                category: "fantasy",
+                cover: "images/harry_potter_and_the_philosopher_stone.jpg",
+                shortDescription: "The beginning of Harry Potter's magical journey at Hogwarts."
+            },
+            {
+                id: 6,
+                title: "The Lord of the Rings",
+                author: "J.R.R. Tolkien",
+                category: "fantasy",
+                cover: "images/the-lord-of-the-rings.jpg",
+                shortDescription: "An epic fantasy journey through Middle-earth."
+            },
+            {
+                id: 7,
+                title: "Sapiens: A Brief History of Humankind",
+                author: "Yuval Noah Harari",
+                category: "non-fiction",
+                cover: "images/sapiens.jpg",
+                shortDescription: "A thought-provoking exploration of human history."
+            },
+            {
+                id: 8,
+                title: "The Origin of Species",
+                author: "Charles Darwin",
+                category: "science",
+                cover: "images/the_origin_of_species.jpg",
+                shortDescription: "The groundbreaking work that introduced the theory of evolution."
+            }
+        ];
+
+        // Get book ID from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const bookId = urlParams.get('bookId');
+
+        if (bookId) {
+            // Hide about content when showing book details
+            document.getElementById('about-content').style.display = 'none';
+            
+            // Find the book by ID
+            const book = books.find(b => b.id === parseInt(bookId));
+            
+            if (book) {
+                displayBookDetails(book);
+            } else {
+                showBookNotFound();
+            }
+        }
+
+        function displayBookDetails(book) {
+            const bookDetails = document.getElementById('book-details');
+            bookDetails.innerHTML = `
+                <div class="book-detail-container">
+                    <div class="book-cover-large">
+                        <img src="images/${book.title.replace(/ /g, '_')}.jpg" alt="${book.title}" class="book-detail-cover">
+                    </div>
+                    <div class="book-info-detail">
+                        <h1>${book.title}</h1>
+                        <p class="book-author">by ${book.author}</p>
+                        <span class="book-category">${book.category}</span>
+                        <div class="book-actions">
+                            <a href="#" class="read-book-btn">Read the Book Here</a>
+                        </div>
+                        <div class="book-description">
+                            <h3>About the Book</h3>
+                            <p>${book.shortDescription}</p>
+                        </div>
+                        <a href="index.html" class="back-to-collection">← Back to Collection</a>
+                    </div>
+                </div>
+            `;
+        }
+
+        function showBookNotFound() {
+            const bookDetails = document.getElementById('book-details');
+            bookDetails.innerHTML = `
+                <div class="book-not-found">
+                    <h2>Book Not Found</h2>
+                    <p>We couldn't find the book you're looking for.</p>
+                    <a href="index.html" class="back-to-collection">← Back to Collection</a>
+                </div>
+            `;
+        }
+    </script>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 The Literary Collection. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
