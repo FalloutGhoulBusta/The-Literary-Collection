@@ -1,0 +1,2 @@
+an twitter ai news aggregator that runs automatically when my computer starts!
+building my own gittodoc(crawl git repo, maintain a structured format for conveying the content, publish it(best practice, create a tree(for this ill need a tree maker, that crawls directory and builds a tree structure*)crawl the README.md file first, then ))

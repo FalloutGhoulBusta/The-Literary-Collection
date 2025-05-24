@@ -1,0 +1,4 @@
+*flowith using
+simulating slime mold, by running ai comparisons. same for other topics
+
+buidling a taks management app for myself

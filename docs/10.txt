@@ -1,0 +1,8 @@
+javascript
+html
+github-pages
+
+
+uploading cursor clone documents(aask ai to generate a full 5 page document on the topic(ask various ai's))
+
+check mizuqi twitter dms and about the video, ask grok > ask gemini > compare prompt response across all of the models > ask neo to create the stuff

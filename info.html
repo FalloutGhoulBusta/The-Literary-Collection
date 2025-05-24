@@ -165,7 +165,7 @@
             bookDetails.innerHTML = `
                 <div class="book-detail-container">
                     <div class="book-cover-large">
-                        <img src="images/${book.title.replace(/ /g, '_')}.jpg" alt="${book.title}" class="book-detail-cover">
+                        <img src="images/${book.title.replace(/ /g, '_')}.jpg" alt="${book.title}" class="book-detail-cover" loading="lazy">
                     </div>
                     <div class="book-info-detail">
                         <h1>${book.title}</h1>

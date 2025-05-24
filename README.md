@@ -89,6 +89,11 @@ project/
 - `filteredBooks`: Tracks currently displayed books
 - `currentCategory`: Tracks active category filter
 
+### Performance Optimizations
+- **Lazy Loading**: Images are loaded only when they're about to enter the viewport, improving initial page load time
+- **Efficient Rendering**: The book grid is rendered efficiently using modern JavaScript
+- **Minimal Dependencies**: No external libraries or frameworks, reducing bundle size and improving performance
+
 
 ## 📱 Responsive Design
 - Mobile-first approach

@@ -1,0 +1,3 @@
+build a tool that can take a screenshot of a webpage 'and publish it as a chrome extension'
+
+list all of the python modeuls and libraries installed on this machine, by typing pip list

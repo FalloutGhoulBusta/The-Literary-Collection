@@ -1,0 +1,1011 @@
+Repository: FalloutGhoulBusta/ The-Literary-Collection
+Deployment: https://falloutghoulbusta.github...<br>
+
+Directory structure:
+The-Literary-Collection
+├── README.md
+├── images
+│ ├── 1984.jpg
+│ ├── A_Brief_History_of_Time.jpg
+│ ├── To_Kill_a_Mockingbird.jpg
+│ ├── cosmos.jpg
+│ ├── favicon.png
+│ ├── favicon_16x16.jpg
+│ ├── harry_potter_and_the_philosopher_stone.jpg
+│ ├── icons
+│ │ └── search.svg
+│ ├── sapiens.jpg
+│ ├── the-lord-of-the-rings.jpg
+│ └── the_origin_of_species.jpg
+├── index.html
+├── info.html
+├── script.js
+└── styles.css
+
+================================================
+FILE: README.md
+
+The Literary Collection Library
+A responsive online library application built with vanilla HTML, CSS, and JavaScript. This project showcases modern frontend development techniques without relying on external frameworks, making it an excellent learning resource for web development fundamentals.
+
+🚀 Features
+Core Functionality
+Interactive Book Grid: Displays a responsive grid of books with cover images, titles, and authors- Category Filtering: Filter books by categories (Fiction, Non-Fiction, Science, Fantasy)- Book Details: Click any book to view detailed information in another page- Responsive Design: Fully responsive layout that works on all device sizes
+User Experience
+Visual Feedback: Interactive elements provide clear visual feedback- Accessible: Built with accessibility in mind, including proper ARIA labels and keyboard navigation- Performance: Optimized for fast loading and smooth interactions
+Performance Optimizations
+Lazy Loading: Images are loaded only when they're about to enter the viewport, improving initial page load time- Efficient Rendering: The book grid is rendered efficiently using modern JavaScript- Minimal Dependencies: No external libraries or frameworks, reducing bundle size
+🛠️ Project Structure
+project/
+├── index.html        # Main application entry point
+├── info.html         # About/Information page
+├── styles.css        # Global styles and responsive design
+├── script.js         # Core application logic
+└── images/           # Contains book covers and icons
+    ├── *.jpg  # Book cover images
+    └── icons/        # UI icons (search, etc.)
+🚀 Getting Started
+Prerequisites
+Modern web browser (Chrome, Firefox, Safari, Edge)
+No server required - runs directly in the browser
+Installation
+Clone the repository:
+git clone [repository-url]
+Navigate to the project directory
+Open index.html in your preferred web browser
+🎨 Customization
+Adding New Books
+Open script.js2. Add a new book object to the books array with the following structure:
+{
+    id: [unique-number],
+    title: "Book Title",
+    author: "Author Name",
+    category: "category-name",
+    cover: "images/book-cover.jpg",
+    description: "Detailed book description...",
+    published: "Year",
+    pages: [page-count],
+    language: "Language",
+    shortDescription: "Brief description for hover effect"
+}
+Add the corresponding book cover image to the images/ directory
+Styling
+Main styles are in styles.css- Color scheme and design tokens are defined at the top of the file
+The layout uses CSS Grid and Flexbox for responsive design
+Adding New Categories
+Add a new filter button in index.html:
+<button class="filter-btn" data-category="new-category">New Category</button>
+The filtering logic in script.js will automatically handle the new category
+🧠 Technical Implementation
+Key JavaScript Functions
+displayBooks(booksToDisplay): Renders books to the DOM- handleSearch(): Implements real-time search functionality- filterByCategory(category): Handles category filtering- setupEventListeners(): Manages all event listeners
+State Management
+filteredBooks: Tracks currently displayed books- currentCategory: Tracks active category filter
+📱 Responsive Design
+Mobile-first approach
+Responsive grid layout
+Adaptive typography and spacing
+Touch-friendly interactive elements
+🛠️ Built With
+Vanilla JavaScript (ES6+)
+CSS3 (Grid, Flexbox, Variables)
+HTML5 (Semantic Elements)
+📚 Learning Points
+This project demonstrates:
+
+Modern JavaScript (ES6+ features)
+DOM Manipulation
+Event Delegation
+Responsive Web Design principles
+CSS Grid and Flexbox
+Performance Optimization
+Accessibility Best Practices
+🤝 Contributing
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+📄 License
+This project is open source and available under the MIT License.
+
+🙏 Credits
+Book cover images are for demonstration purposes only
+Custom icons are downloaded from the internet.
+Inspired by modern library and e-book platforms
+================================================
+FILE: index.html
+
+    <!-- Category filters -->
+    <div class="filter-container">
+        <h2>Categories:</h2>
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="fiction">Fiction</button>
+            <button class="filter-btn" data-category="non-fiction">Non-Fiction</button>
+            <button class="filter-btn" data-category="science">Science</button>
+            <button class="filter-btn" data-category="fantasy">Fantasy</button>
+        </div>
+    </div>
+
+    <!-- Books container -->
+    <div class="books-container" id="books-container">
+        <!-- Books will be loaded here -->
+    </div>
+</div>
+
+<script src="script.js"></script>
+================================================
+FILE: info.html
+
+<main class="info-container">
+    <div id="book-details" class="book-details">
+        <!-- Book details will be dynamically inserted here -->
+    </div>
+
+    <div id="about-content">
+        <section class="info-section">
+            <h2>Our Collection</h2>
+            <p>Welcome to The Literary Collection, a curated selection of timeless books across various genres. Below is a glimpse of our featured titles:</p>
+            
+            <div class="collection-category">
+                <h3>Fiction</h3>
+                <ul>
+                    <li><strong>To Kill a Mockingbird</strong> by Harper Lee - A classic tale of racial injustice in the American South.</li>
+                    <li><strong>1984</strong> by George Orwell - A dystopian novel about totalitarianism and surveillance.</li>
+                </ul>
+            </div>
+            
+            <div class="collection-category">
+                <h3>Non-Fiction</h3>
+                <ul>
+                    <li><strong>A Brief History of Time</strong> by Stephen Hawking - An introduction to cosmology by renowned physicist Stephen Hawking.</li>
+                    <li><strong>Sapiens: A Brief History of Humankind</strong> by Yuval Noah Harari - A thought-provoking exploration of human history.</li>
+                </ul>
+            </div>
+            
+            <div class="collection-category">
+                <h3>Science</h3>
+                <ul>
+                    <li><strong>The Cosmos</strong> by Carl Sagan - A journey through the universe with astronomer Carl Sagan.</li>
+                    <li><strong>The Origin of Species</strong> by Charles Darwin - The groundbreaking work that introduced the theory of evolution.</li>
+                </ul>
+            </div>
+            
+            <div class="collection-category">
+                <h3>Fantasy</h3>
+                <ul>
+                    <li><strong>Harry Potter and the Philosopher's Stone</strong> by J.K. Rowling - The beginning of Harry Potter's magical journey at Hogwarts.</li>
+                    <li><strong>The Lord of the Rings</strong> by J.R.R. Tolkien - An epic fantasy journey through Middle-earth.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2>Our Mission</h2>
+            <p>Our mission is to provide easy access to great literature and foster a love for reading. We believe in the power of books to educate, inspire, and entertain.</p>
+        </section>
+
+        <section class="info-section">
+            <h2>Browse Our Collection</h2>
+            <p>Use our <a href="index.html" class="text-link">main page</a> to explore our collection. You can filter books by category or use the search function to find specific titles or authors.</p>
+        </section>
+    </div>
+</main>
+
+<script>
+    // Define the books array directly here
+    const books = [
+        {
+            id: 1,
+            title: "To Kill a Mockingbird",
+            author: "Harper Lee",
+            category: "fiction",
+            cover: "images/To_Kill_a_Mockingbird.jpg",
+            shortDescription: "A classic tale of racial injustice in the American South."
+        },
+        {
+            id: 2,
+            title: "1984",
+            author: "George Orwell",
+            category: "fiction",
+            cover: "images/1984.jpg",
+            shortDescription: "A dystopian novel about totalitarianism and surveillance."
+        },
+        {
+            id: 3,
+            title: "A Brief History of Time",
+            author: "Stephen Hawking",
+            category: "non-fiction",
+            cover: "images/A_Brief_History_of_Time.jpg",
+            shortDescription: "An introduction to cosmology by renowned physicist Stephen Hawking."
+        },
+        {
+            id: 4,
+            title: "The Cosmos",
+            author: "Carl Sagan",
+            category: "science",
+            cover: "images/cosmos.jpg",
+            shortDescription: "A journey through the universe with astronomer Carl Sagan."
+        },
+        {
+            id: 5,
+            title: "Harry Potter and the Philosopher's Stone",
+            author: "J.K. Rowling",
+            category: "fantasy",
+            cover: "images/harry_potter_and_the_philosopher_stone.jpg",
+            shortDescription: "The beginning of Harry Potter's magical journey at Hogwarts."
+        },
+        {
+            id: 6,
+            title: "The Lord of the Rings",
+            author: "J.R.R. Tolkien",
+            category: "fantasy",
+            cover: "images/the-lord-of-the-rings.jpg",
+            shortDescription: "An epic fantasy journey through Middle-earth."
+        },
+        {
+            id: 7,
+            title: "Sapiens: A Brief History of Humankind",
+            author: "Yuval Noah Harari",
+            category: "non-fiction",
+            cover: "images/sapiens.jpg",
+            shortDescription: "A thought-provoking exploration of human history."
+        },
+        {
+            id: 8,
+            title: "The Origin of Species",
+            author: "Charles Darwin",
+            category: "science",
+            cover: "images/the_origin_of_species.jpg",
+            shortDescription: "The groundbreaking work that introduced the theory of evolution."
+        }
+    ];
+
+    // Get book ID from URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const bookId = urlParams.get('bookId');
+
+    if (bookId) {
+        // Hide about content when showing book details
+        document.getElementById('about-content').style.display = 'none';
+        
+        // Find the book by ID
+        const book = books.find(b => b.id === parseInt(bookId));
+        
+        if (book) {
+            displayBookDetails(book);
+        } else {
+            showBookNotFound();
+        }
+    }
+
+    function displayBookDetails(book) {
+        const bookDetails = document.getElementById('book-details');
+        bookDetails.innerHTML = `
+            <div class="book-detail-container">
+                <div class="book-cover-large">
+                    <img src="images/${book.title.} class="book-detail-cover" loading="lazy">
+                </div>
+                <div class="book-info-detail">
+                    <h1>${book.title}</h1>
+                    <p class="book-author">by ${book.author}</p>
+                    <span class="book-category">${book.category}</span>
+                    <div class="book-actions">
+                        <a href="#" class="read-book-btn">Read the Book Here</a>
+                    </div>
+                    <div class="book-description">
+                        <h3>About the Book</h3>
+                        <p>${book.shortDescription}</p>
+                    </div>
+                    <a href="index.html" class="back-to-collection">← Back to Collection</a>
+                </div>
+            </div>
+        `;
+    }
+
+    function showBookNotFound() {
+        const bookDetails = document.getElementById('book-details');
+        bookDetails.innerHTML = `
+            <div class="book-not-found">
+                <h2>Book Not Found</h2>
+                <p>We couldn't find the book you're looking for.</p>
+                <a href="index.html" class="back-to-collection">← Back to Collection</a>
+            </div>
+        `;
+    }
+</script>
+
+<footer class="main-footer">
+    <p>&copy; 2025 The Literary Collection. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+================================================
+FILE: script.js
+
+// Sample book data (in a real application, this might come from an API or database)
+const books = [
+{
+id: 1,
+title: "To Kill a Mockingbird",
+author: "Harper Lee",
+category: "fiction",
+cover: "images/To_Kill_a_Mockingbird.jpg",
+description: "To Kill a Mockingbird is a novel by Harper Lee published in 1960. It was immediately successful, winning the Pulitzer Prize, and has become a classic of modern American literature.",
+published: "1960",
+pages: 281,
+language: "English",
+shortDescription: "A classic tale of racial injustice in the American South."
+},
+{
+id: 2,
+title: "1984",
+author: "George Orwell",
+category: "fiction",
+cover: "images/1984.jpg",
+description: "1984 is a dystopian social science fiction novel by English novelist George Orwell. It was published on 8 June 1949 as Orwell's ninth and final book completed in his lifetime.",
+published: "1949",
+pages: 328,
+language: "English",
+shortDescription: "A dystopian novel about totalitarianism and surveillance."
+},
+{
+id: 3,
+title: "A Brief History of Time",
+author: "Stephen Hawking",
+category: "non-fiction",
+cover: "images/A_Brief_History_of_Time.jpg",
+description: "A Brief History of Time: From the Big Bang to Black Holes is a theoretical physics book by English physicist Stephen Hawking. It was first published in 1988. Hawking wrote the book for readers who had no prior knowledge of physics.",
+published: "1988",
+pages: 212,
+language: "English",
+shortDescription: "An introduction to cosmology by renowned physicist Stephen Hawking."
+},
+{
+id: 4,
+title: "The Cosmos",
+author: "Carl Sagan",
+category: "science",
+cover: "images/cosmos.jpg",
+description: "Cosmos is a 1980 popular science book by astronomer and Pulitzer Prize-winning author Carl Sagan. Its 13 illustrated chapters, correspond to the 13 episodes of the Cosmos TV series.",
+published: "1980",
+pages: 365,
+language: "English",
+shortDescription: "A journey through the universe with astronomer Carl Sagan."
+},
+{
+id: 5,
+title: "Harry Potter and the Philosopher's Stone",
+author: "J.K. Rowling",
+category: "fantasy",
+cover: "images/harry_potter_and_the_philosopher_stone.jpg",
+description: "Harry Potter and the Philosopher's Stone is a fantasy novel written by British author J. K. Rowling. The first novel in the Harry Potter series and Rowling's debut novel, it follows Harry Potter, a young wizard who discovers his magical heritage on his eleventh birthday.",
+published: "1997",
+pages: 223,
+language: "English",
+shortDescription: "The beginning of Harry Potter's magical journey at Hogwarts."
+},
+{
+id: 6,
+title: "The Lord of the Rings",
+author: "J.R.R. Tolkien",
+category: "fantasy",
+cover: "images/the-lord-of-the-rings.jpg",
+description: "The Lord of the Rings is an epic high-fantasy novel by English author and scholar J. R. R. Tolkien. The story began as a sequel to Tolkien's 1937 fantasy novel The Hobbit, but eventually developed into a much larger work.",
+published: "1954",
+pages: 1178,
+language: "English",
+shortDescription: "An epic fantasy journey through Middle-earth."
+},
+{
+id: 7,
+title: "Sapiens: A Brief History of Humankind",
+author: "Yuval Noah Harari",
+category: "non-fiction",
+cover: "images/sapiens.jpg",
+description: "Sapiens: A Brief History of Humankind is a book by Yuval Noah Harari, first published in Hebrew in Israel in 2011 based on a series of lectures given at The Hebrew University of Jerusalem.",
+published: "2011",
+pages: 443,
+language: "English",
+shortDescription: "A thought-provoking exploration of human history."
+},
+{
+id: 8,
+title: "The Origin of Species",
+author: "Charles Darwin",
+category: "science",
+cover: "images/the_origin_of_species.jpg",
+description: "On the Origin of Species, published on 24 November 1859, is a work of scientific literature by Charles Darwin which is considered to be the foundation of evolutionary biology.",
+published: "1859",
+pages: 502,
+language: "English",
+shortDescription: "The groundbreaking work that introduced the theory of evolution."
+}
+];
+
+// DOM elements
+const booksContainer = document.getElementById('books-container');
+const searchInput = document.getElementById('search-input');
+const searchButton = document.getElementById('search-button');
+const filterButtons = document.querySelectorAll('.filter-btn');
+
+// Variables to track current state
+let filteredBooks = [...books];
+let currentCategory = 'all';
+
+// Initialize the page
+document.addEventListener('DOMContentLoaded', function() {
+displayBooks(books);
+setupEventListeners();
+});
+
+// Set up all event listeners
+function setupEventListeners() {
+// Search functionality
+searchButton.addEventListener('click', handleSearch);
+searchInput.addEventListener('keyup', (e) => {
+if (e.key === 'Enter') {
+handleSearch();
+}
+});
+
+// Filter buttons
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        // Add active class to clicked button
+        button.classList.add('active');
+        
+        const category = button.getAttribute('data-category');
+        currentCategory = category;
+        filterByCategory(category);
+    });
+});
+}
+
+// Display books in the container
+function displayBooks(booksToDisplay) {
+booksContainer.innerHTML = '';
+
+if (booksToDisplay.length === 0) {
+    booksContainer.innerHTML = '<p class="no-results">No books found. Try a different search.</p>';
+    return;
+}
+
+booksToDisplay.forEach(book => {
+    const bookCard = document.createElement('div');
+    bookCard.className = 'book-card';
+    bookCard.setAttribute('data-id', book.id);
+
+    bookCard.innerHTML = `
+        <img src="${book.cover}" alt="${book.title}" class="book-cover" loading="lazy">
+        <div class="book-info">
+            <h3 class="book-title">${book.title}</h3>
+            <p class="book-author">by ${book.author}</p>
+            <span class="book-category">${book.category}</span>
+            <a href="info.html?bookId=${book.id}" class="read-more-btn">Read More</a>
+        </div>
+    `;
+
+    booksContainer.appendChild(bookCard);
+});
+}
+
+// Handle search functionality
+function handleSearch() {
+const searchTerm = searchInput.value.toLowerCase().trim();
+
+if (searchTerm === '') {
+    // If search is empty, restore to current category filter
+    filterByCategory(currentCategory);
+    return;
+}
+
+// Search in title and author
+filteredBooks = books.filter(book => 
+    book.title.toLowerCase().includes(searchTerm) || 
+    book.author.toLowerCase().includes(searchTerm)
+);
+
+displayBooks(filteredBooks);
+}
+
+// Filter books by category
+function filterByCategory(category) {
+if (category === 'all') {
+filteredBooks = [...books];
+} else {
+filteredBooks = books.filter(book => book.category === category);
+}
+
+displayBooks(filteredBooks);
+}
+
+================================================
+FILE: styles.css
+
+/* Reset and basic styles */
+
+{ margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+body {
+background-color: #f7f9fc;
+color: #2d3748;
+position: relative;
+overflow-x: hidden;
+line-height: 1.6;
+}
+
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 20px;
+}
+
+/* Header styles */
+header {
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-bottom: 30px;
+text-align: center;
+}
+
+h1 {
+color: #2c3e50;
+margin-bottom: 20px;
+}
+
+.search-container {
+display: flex;
+margin-top: 15px;
+width: 100%;
+max-width: 500px;
+}
+
+#search-input {
+padding: 10px 15px;
+border: 1px solid #cbd5e0;
+border-radius: 4px 0 0 4px;
+width: 100%;
+font-size: 16px;
+background-color: #ffffff;
+transition: border-color 0.2s;
+}
+
+#search-input:focus {
+outline: none;
+border-color: #cbd5e0;
+}
+
+#search-button {
+background-color: white;
+color: #2d3748;
+border: 1px solid #cbd5e0;
+border-radius: 0 4px 4px 0;
+padding: 8px 18px;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+font-weight: 600;
+font-size: 0.95rem;
+}
+
+/* Search icon color */
+#search-button .search-icon {
+filter: invert(43%) sepia(93%) saturate(1207%) hue-rotate(176deg) brightness(96%) contrast(87%);
+
+}
+
+/* Category filter styles */
+.filter-container {
+margin-bottom: 30px;
+text-align: center;
+}
+
+.filter-container h2 {
+font-size: 1.2rem;
+margin-bottom: 15px;
+color: #2c3e50;
+}
+
+.filter-buttons {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 10px;
+}
+
+.filter-btn {
+padding: 8px 16px;
+background-color: #ffffff;
+border: 1px solid #63b3ed;
+border-radius: 20px;
+cursor: pointer;
+transition: none;
+color: #4a5568;
+font-size: 0.9rem;
+}
+
+.filter-btn.active {
+background-color: #63b3ed;
+color: white;
+border-color: #63b3ed;
+}
+
+/* Books container styles */
+.books-container {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+gap: 30px;
+}
+
+.book-card {
+background-color: #ffffff;
+border-radius: 8px;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+overflow: hidden;
+
+position: relative;
+display: flex;
+flex-direction: column;
+height: 100%;
+border: 1px solid #cbd5e0;
+}
+
+.book-cover {
+width: 100%;
+height: 280px;
+object-fit: cover;
+border-bottom: 1px solid #eee;
+flex-shrink: 0;
+}
+
+.book-info {
+padding: 15px;
+flex-grow: 1;
+display: flex;
+flex-direction: column;
+}
+
+.book-title {
+font-weight: bold;
+font-size: 1.1rem;
+margin-bottom: 8px;
+color: #2c3e50;
+line-height: 1.3;
+}
+
+.book-author {
+color: #7f8c8d;
+font-size: 0.9rem;
+margin-bottom: 10px;
+font-style: italic;
+}
+
+.read-more-btn {
+display: inline-block;
+margin-top: 10px;
+padding: 6px 16px;
+background-color: #63b3ed;
+color: white;
+text-decoration: none;
+border-radius: 4px;
+font-size: 0.9rem;
+font-weight: 500;
+border: none;
+cursor: pointer;
+text-align: center;
+}
+
+.book-category {
+font-size: 0.75rem;
+background-color: #ebf8ff;
+color: #2b6cb0;
+padding: 4px 12px;
+border-radius: 12px;
+display: inline-block;
+margin-top: auto;
+align-self: flex-start;
+font-weight: 500;
+text-transform: capitalize;
+letter-spacing: 0.5px;
+}
+
+/* Collection Categories */
+.collection-category {
+margin-bottom: 2rem;
+padding-bottom: 1.5rem;
+border-bottom: 1px solid #e2e8f0;
+}
+
+.collection-category:last-child {
+border-bottom: none;
+margin-bottom: 1rem;
+}
+
+.collection-category h3 {
+color: #2c3e50;
+margin-bottom: 0.75rem;
+font-size: 1.25rem;
+font-weight: 600;
+}
+
+.collection-category ul {
+list-style-type: none;
+padding-left: 0;
+}
+
+.collection-category li {
+margin-bottom: 0.5rem;
+line-height: 1.5;
+}
+
+/* Info Page Styles */
+.info-container {
+max-width: 900px;
+margin: 2rem auto;
+padding: 0 1.5rem;
+}
+
+.info-section {
+background: white;
+border-radius: 8px;
+padding: 2rem;
+margin-bottom: 2rem;
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.info-section h2 {
+color: #2c5282;
+margin-top: 0;
+margin-bottom: 1rem;
+font-family: 'Merriweather', serif;
+font-weight: 700;
+}
+
+.info-section p {
+color: #4a5568;
+line-height: 1.6;
+margin-bottom: 1.5rem;
+}
+
+.text-link {
+color: #4299e1;
+text-decoration: none;
+font-weight: 600;
+transition: none;
+}
+
+/* Navigation */
+.main-nav {
+display: flex;
+gap: 1.5rem;
+margin-bottom: 1.5rem;
+}
+
+.nav-link {
+color: #4a5568;
+text-decoration: none;
+font-weight: 600;
+padding: 0.5rem 0;
+position: relative;
+transition: color 0.2s;
+}
+
+.nav-link:hover {
+color: #4a5568;
+}
+
+.nav-link.active {
+color: #2b6cb0;
+}
+
+.nav-link.active::after {
+content: '';
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+height: 2px;
+background-color: #2b6cb0;
+}
+
+/* Book Details Page */
+.book-detail-container {
+display: flex;
+gap: 3rem;
+background: white;
+border-radius: 8px;
+padding: 2.5rem;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.book-cover-large {
+flex: 0 0 300px;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+border-radius: 4px;
+overflow: hidden;
+}
+
+.book-detail-cover {
+width: 100%;
+height: auto;
+display: block;
+}
+
+.book-info-detail {
+flex: 1;
+}
+
+.book-info-detail h1 {
+font-size: 2.2rem;
+margin: 0 0 0.5rem 0;
+color: #2d3748;
+font-family: 'Merriweather', serif;
+}
+
+.book-info-detail .book-author {
+font-size: 1.2rem;
+color: #4a5568;
+margin-bottom: 1.5rem;
+}
+
+.book-actions {
+margin: 1.5rem 0;
+}
+
+.read-book-btn {
+display: inline-block;
+background-color: #48bb78;
+color: white;
+text-decoration: none;
+padding: 0.75rem 1.5rem;
+border-radius: 4px;
+font-weight: 600;
+transition: none;
+text-align: center;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.book-info-detail .book-category {
+display: inline-block;
+background: #ebf8ff;
+color: #2b6cb0;
+padding: 0.25rem 0.75rem;
+border-radius: 12px;
+font-size: 0.85rem;
+font-weight: 600;
+margin-bottom: 1.5rem;
+}
+
+.book-description {
+margin: 2rem 0;
+line-height: 1.7;
+color: #4a5568;
+}
+
+.book-description h3 {
+color: #2d3748;
+margin: 2rem 0 1rem 0;
+font-size: 1.4rem;
+}
+
+.back-to-collection {
+display: inline-block;
+color: #4299e1;
+text-decoration: none;
+font-weight: 600;
+margin-top: 1rem;
+transition: none;
+}
+
+.book-not-found {
+text-align: center;
+padding: 4rem 2rem;
+background: white;
+border-radius: 8px;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.book-not-found h2 {
+color: #2d3748;
+margin-bottom: 1rem;
+}
+
+.book-not-found p {
+color: #4a5568;
+margin-bottom: 2rem;
+}
+
+/* Responsive styles for book details */
+@media (max-width: 900px) {
+.book-detail-container {
+flex-direction: column;
+padding: 1.5rem;
+}
+
+.book-cover-large {
+    flex: 0 0 auto;
+    max-width: 300px;
+    margin: 0 auto 2rem auto;
+}
+
+.book-info-detail h1 {
+    font-size: 1.8rem;
+}
+}
+
+/* Footer */
+.main-footer {
+text-align: center;
+padding: 2rem 1rem;
+margin-top: 3rem;
+color: #718096;
+font-size: 0.9rem;
+border-top: 1px solid #e2e8f0;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+.books-container {
+grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+gap: 20px;
+}
+
+.book-cover {
+    height: 200px;
+}
+
+
+
+.filter-btn {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+}
+}
+
+@media (max-width: 480px) {
+.books-container {
+grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+gap: 15px;
+}
+
+.book-cover {
+    height: 180px;
+}
+
+.book-info {
+    padding: 10px;
+}
+
+.book-title {
+    font-size: 0.9rem;
+}
+
+.book-author {
+    font-size: 0.8rem;
+}
+}
+
+/* Search button styles */
+#search-button {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+font-weight: 500;
+padding: 10px 20px;
+font-size: 0.95rem;
+}
+
+.search-icon {
+width: 18px;
+height: 18px;
+/* Make the SVG icon white to match the button text /
+filter: brightness(0) invert(1);
+/ Smooth transition for hover effects */
+
+}
+
+<!DOCTYPE html><html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>The Literary Collection</title> <link rel="icon" href="images/favicon.png" type="image/png"> <link rel="stylesheet" href="styles.css"> </head> <body> <div class="container" style="width: 100%;"> <header class="main-header"> <nav class="main-nav"> <a href="index.html" class="nav-link active">Home</a> <a href="info.html" class="nav-link">About</a> </nav> <h1>The Literary Collection</h1> <div class="search-container"> <input type="text" id="search-input" placeholder="Search books..."> <button id="search-button" aria-label="Search"> <img src="images/icons/search.svg" alt="" class="search-icon" loading="lazy"> <span>Search</span> </button> </div> </header></body> </html> <!DOCTYPE html><html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>About The Literary Collection</title> <link rel="stylesheet" href="styles.css"> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> </head> <body> <header class="main-header"> <nav class="main-nav"> <a href="index.html" class="nav-link">Home</a> <a href="info.html" class="nav-link active">About</a> </nav> <h1>About The Literary Collection</h1> </header></body> </html>
