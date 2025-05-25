@@ -1,0 +1,72 @@
+<svg width="350" height="280" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .dir { fill: #f0f0f0; stroke: #666; stroke-width: 1; }
+    .file { fill: #ffffff; stroke: #666; stroke-width: 1; }
+    .text { font-family: 'Courier New', monospace; font-size: 11px; fill: #000; text-anchor: start; }
+    .dir-text { font-weight: bold; }
+    .tree-line { stroke: #999; stroke-width: 1; fill: none; }
+  </style>
+  
+  <!-- Root directory -->
+  <rect x="10" y="10" width="200" height="18" class="dir"/>
+  <text x="15" y="23" class="text dir-text">The-Literary-Collection/</text>
+  
+  <!-- Tree lines from root -->
+  <line x1="25" y1="28" x2="25" y2="280" class="tree-line"/>
+  
+  <!-- README.md -->
+  <line x1="25" y1="40" x2="40" y2="40" class="tree-line"/>
+  <rect x="40" y="32" width="120" height="16" class="file"/>
+  <text x="45" y="43" class="text">README.md</text>
+  
+  <!-- images/ directory -->
+  <line x1="25" y1="60" x2="40" y2="60" class="tree-line"/>
+  <rect x="40" y="52" width="120" height="16" class="dir"/>
+  <text x="45" y="63" class="text dir-text">images/</text>
+  
+  <!-- Tree lines from images/ -->
+  <line x1="55" y1="68" x2="55" y2="140" class="tree-line"/>
+  
+  <!-- *.jpg files -->
+  <line x1="55" y1="80" x2="70" y2="80" class="tree-line"/>
+  <rect x="70" y="72" width="120" height="16" class="file"/>
+  <text x="75" y="83" class="text">*.jpg (covers)</text>
+  
+  <!-- icons/ directory -->
+  <line x1="55" y1="100" x2="70" y2="100" class="tree-line"/>
+  <rect x="70" y="92" width="120" height="16" class="dir"/>
+  <text x="75" y="103" class="text dir-text">icons/</text>
+  
+  <!-- Vertical line from icons/ to search.svg -->
+  <line x1="75" y1="108" x2="75" y2="120" class="tree-line"/>
+  
+  <!-- search.svg -->
+  <line x1="75" y1="120" x2="90" y2="120" class="tree-line"/>
+  <rect x="85" y="112" width="120" height="16" class="file"/>
+  <text x="90" y="123" class="text">search.svg</text>
+  
+  <!-- favicon.* -->
+  <line x1="55" y1="140" x2="70" y2="140" class="tree-line"/>
+  <rect x="70" y="132" width="120" height="16" class="file"/>
+  <text x="75" y="143" class="text">favicon.*</text>
+  
+  <!-- index.html -->
+  <line x1="25" y1="180" x2="40" y2="180" class="tree-line"/>
+  <rect x="40" y="172" width="120" height="16" class="file"/>
+  <text x="45" y="183" class="text">index.html</text>
+  
+  <!-- info.html -->
+  <line x1="25" y1="210" x2="40" y2="210" class="tree-line"/>
+  <rect x="40" y="202" width="120" height="16" class="file"/>
+  <text x="45" y="213" class="text">info.html</text>
+  
+  <!-- script.js -->
+  <line x1="25" y1="240" x2="40" y2="240" class="tree-line"/>
+  <rect x="40" y="232" width="120" height="16" class="file"/>
+  <text x="45" y="243" class="text">script.js</text>
+  
+  <!-- styles.css -->
+  <line x1="25" y1="270" x2="40" y2="270" class="tree-line"/>
+  <rect x="40" y="262" width="120" height="16" class="file"/>
+  <text x="45" y="273" class="text">styles.css</text>
+</svg>
